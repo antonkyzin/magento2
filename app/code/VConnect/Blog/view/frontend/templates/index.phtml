@@ -1,0 +1,27 @@
+<table>
+    <tr>
+        <th>Id</th>
+        <th>title</th>
+        <th>content</th>
+        <th>announce</th>
+        <th>publish_date</th>
+        <th>is_published</th>
+        <th>created_at</th>
+        <th>updated_at</th>
+    </tr>
+
+    <?php /** @var \VConnect\Blog\Block\Index $block */ ?>
+    <?php $collection = $block->getResult(); ?>
+    <?php foreach ($collection as $item): ?>
+        <tr>
+            <td><?= $item->getData('post_id'); ?></td>
+            <td><?= $item->getData('title'); ?></td>
+            <td><?= $item->getData('content'); ?></td>
+            <td><?= $item->getData('announce'); ?></td>
+            <td><?= $item->getData('publish_date'); ?></td>
+            <td><?= $item->getData('is_published'); ?></td>
+            <td><?= $item->getData('created_at'); ?></td>
+            <td><?= $item->getData('updated_at'); ?></td>
+        </tr>
+    <?php endforeach; ?>
+</table>
