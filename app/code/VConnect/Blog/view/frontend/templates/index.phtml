@@ -1,3 +1,10 @@
+<?php
+/**
+ * @var \VConnect\Blog\ViewModel\Posts $viewModel
+ */
+$viewModel = $block->getData('view_model');
+?>
+
 <table>
     <tr>
         <th>Id</th>
@@ -10,18 +17,17 @@
         <th>updated_at</th>
     </tr>
 
-    <?php /** @var \VConnect\Blog\Block\Index $block */ ?>
-    <?php $collection = $block->getResult(); ?>
-    <?php foreach ($collection as $item): ?>
+    <?php foreach ($viewModel->getPosts() as $post): ?>
+        <?php /** @var VConnect\Blog\Model\Post $post */ ?>
         <tr>
-            <td><?= $item->getData('post_id'); ?></td>
-            <td><?= $item->getData('title'); ?></td>
-            <td><?= $item->getData('content'); ?></td>
-            <td><?= $item->getData('announce'); ?></td>
-            <td><?= $item->getData('publish_date'); ?></td>
-            <td><?= $item->getData('is_published'); ?></td>
-            <td><?= $item->getData('created_at'); ?></td>
-            <td><?= $item->getData('updated_at'); ?></td>
+            <td><?= $post->getId() ?></td>
+            <td><?= $post->getTitle() ?></td>
+            <td><?= $post->getContent() ?></td>
+            <td><?= $post->getAnnounce() ?></td>
+            <td><?= $post->getPublishDate() ?></td>
+            <td><?= $post->getPostStatus() ?></td>
+            <td><?= $post->getCreatedTime() ?></td>
+            <td><?= $post->getUpdatedTime() ?></td>
         </tr>
     <?php endforeach; ?>
 </table>
