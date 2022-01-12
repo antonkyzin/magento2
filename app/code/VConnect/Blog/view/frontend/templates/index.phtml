@@ -1,6 +1,7 @@
 <?php
 /**
- * @var \VConnect\Blog\ViewModel\Posts $viewModel
+ * @var Magento\Framework\View\Element\Template $block
+ * @var VConnect\Blog\ViewModel\Posts $viewModel
  */
 $viewModel = $block->getData('view_model');
 ?>
@@ -20,7 +21,7 @@ $viewModel = $block->getData('view_model');
     <?php foreach ($viewModel->getPosts() as $post): ?>
         <?php /** @var VConnect\Blog\Model\Post $post */ ?>
         <tr>
-            <td><?= $post->getId() ?></td>
+            <td><?= $post->getPostId() ?></td>
             <td><?= $post->getTitle() ?></td>
             <td><?= $post->getContent() ?></td>
             <td><?= $post->getAnnounce() ?></td>
@@ -31,3 +32,14 @@ $viewModel = $block->getData('view_model');
         </tr>
     <?php endforeach; ?>
 </table>
+
+<form action="<?= $block->getUrl('blog/post/delete') ?>" method="post">
+    <label>Choose post id which you want delete</label>
+    <select name="post_id">
+        <?php foreach ($viewModel->getPosts() as $post): ?>
+            <?php /** @var VConnect\Blog\Model\Post $post */ ?>
+            <option value="<?= $post->getPostId() ?>"> <?= $post->getPostId() ?> </option>
+        <?php endforeach; ?>
+    </select>
+    <button type="submit">Delete</button>
+</form>

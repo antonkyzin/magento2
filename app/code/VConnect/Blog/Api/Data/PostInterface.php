@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace VConnect\Blog\Api\Data;
 
@@ -7,70 +8,70 @@ interface PostInterface
     /**
      * Constants for keys of data array
      */
-    const POST_ID = 'post_id';
-    const TITLE = 'title';
-    const CONTENT = 'content';
-    const ANNOUNCE = 'announce';
-    const PUBLISH_DATE = 'publish_date';
-    const IS_PUBLISHED = 'is_published';
-    const CREATED_AT = 'created_at';
-    const UPDATED_AT = 'updated_at';
+    public const POST_ID = 'post_id';
+    public const TITLE = 'title';
+    public const CONTENT = 'content';
+    public const ANNOUNCE = 'announce';
+    public const PUBLISH_DATE = 'publish_date';
+    public const IS_PUBLISHED = 'is_published';
+    public const CREATED_AT = 'created_at';
+    public const UPDATED_AT = 'updated_at';
 
     /**
      * Get ID
      *
-     * @return int|null
+     * @return string|null
      */
-    public function getId();
+    public function getPostId(): ?string;
 
     /**
      * Get title
      *
      * @return string|null
      */
-    public function getTitle();
+    public function getTitle(): ?string;
 
     /**
      * Get content
      *
      * @return string|null
      */
-    public function getContent();
+    public function getContent(): ?string;
 
     /**
      * Get announce
      *
      * @return string|null
      */
-    public function getAnnounce();
+    public function getAnnounce(): ?string;
 
     /**
      * Get publish date
      *
      * @return string|null
      */
-    public function getPublishDate();
+    public function getPublishDate(): ?string;
 
     /**
      * Get post status
      *
-     * @return bool|null
+     * @return string|null
      */
-    public function getPostStatus();
+    public function getPostStatus(): ?string;
 
     /**
      * Get created time
      *
      * @return string|null
      */
-    public function getCreatedTime();
+    public function getCreatedTime(): ?string;
 
     /**
      * Get updated time
      *
      * @return string|null
      */
-    public function getUpdatedTime();
+    public function getUpdatedTime(): ?string;
 
     /**
      * Set ID
@@ -78,7 +79,7 @@ interface PostInterface
      * @param int $id
      * @return PostInterface
      */
-    public function setId($id);
+    public function setPostId(int $id): PostInterface;
 
     /**
      * Set title
@@ -86,7 +87,7 @@ interface PostInterface
      * @param string $title
      * @return PostInterface
      */
-    public function setTitle($title);
+    public function setTitle(string $title): PostInterface;
 
     /**
      * Set content
@@ -94,7 +95,7 @@ interface PostInterface
      * @param string $content
      * @return PostInterface
      */
-    public function setContent($content);
+    public function setContent(string $content): PostInterface;
 
     /**
      * Set announce
@@ -102,7 +103,7 @@ interface PostInterface
      * @param string $announce
      * @return PostInterface
      */
-    public function setAnnounce($announce);
+    public function setAnnounce(string $announce): PostInterface;
 
     /**
      * Set publish date
@@ -110,7 +111,7 @@ interface PostInterface
      * @param string $publishDate
      * @return PostInterface
      */
-    public function setPublishDate($publishDate);
+    public function setPublishDate(string $publishDate): PostInterface;
 
     /**
      * Set post status
@@ -118,7 +119,7 @@ interface PostInterface
      * @param bool $isPublished
      * @return PostInterface
      */
-    public function setPostStatus($isPublished);
+    public function setPostStatus(bool $isPublished): PostInterface;
 
     /**
      * Set created time
@@ -126,7 +127,7 @@ interface PostInterface
      * @param string $createdTime
      * @return PostInterface
      */
-    public function setCreatedTime($createdTime);
+    public function setCreatedTime(string $createdTime): PostInterface;
 
     /**
      * Set updated time
@@ -134,5 +135,5 @@ interface PostInterface
      * @param string $updatedTime
      * @return PostInterface
      */
-    public function setUpdatedTime($updatedTime);
+    public function setUpdatedTime(string $updatedTime): PostInterface;
 }

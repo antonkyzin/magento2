@@ -1,15 +1,17 @@
 <?php
+declare(strict_types=1);
 
 namespace VConnect\Blog\Model;
 
 use Magento\Framework\Model\AbstractModel;
 use VConnect\Blog\Api\Data\PostInterface;
+use VConnect\Blog\Model\ResourceModel\Post as ResourceModel;
 
 class Post extends AbstractModel implements PostInterface
 {
     protected function _construct()
     {
-        $this->_init('VConnect\Blog\Model\ResourceModel\Post');
+        $this->_init(ResourceModel::class);
     }
 
     /**
@@ -18,18 +20,27 @@ class Post extends AbstractModel implements PostInterface
      * @param int $id
      * @return PostInterface
      */
-    public function setId($id)
+    public function setPostId(int $id): PostInterface
     {
         return $this->setData(self::POST_ID, $id);
     }
 
+    /**
+     * Get ID
+     *
+     * @return string|null
+     */
+    public function getPostId(): ?string
+    {
+        return $this->getData(self::POST_ID);
+    }
 
     /**
      * Get title
      *
-     * @return string
+     * @return string|null
      */
-    public function getTitle()
+    public function getTitle(): ?string
     {
         return $this->getData(self::TITLE);
     }
@@ -37,9 +48,9 @@ class Post extends AbstractModel implements PostInterface
     /**
      * Get content
      *
-     * @return string
+     * @return string|null
      */
-    public function getContent()
+    public function getContent(): ?string
     {
         return $this->getData(self::CONTENT);
     }
@@ -47,9 +58,9 @@ class Post extends AbstractModel implements PostInterface
     /**
      * Get announce
      *
-     * @return string
+     * @return string|null
      */
-    public function getAnnounce()
+    public function getAnnounce(): ?string
     {
         return $this->getData(self::ANNOUNCE);
     }
@@ -57,9 +68,9 @@ class Post extends AbstractModel implements PostInterface
     /**
      * Get publish date
      *
-     * @return string
+     * @return string|null
      */
-    public function getPublishDate()
+    public function getPublishDate(): ?string
     {
         return $this->getData(self::PUBLISH_DATE);
     }
@@ -67,9 +78,9 @@ class Post extends AbstractModel implements PostInterface
     /**
      * Get post status
      *
-     * @return bool|int
+     * @return string|int
      */
-    public function getPostStatus()
+    public function getPostStatus(): ?string
     {
         return $this->getData(self::IS_PUBLISHED);
     }
@@ -77,9 +88,9 @@ class Post extends AbstractModel implements PostInterface
     /**
      * Get created time
      *
-     * @return string
+     * @return string|null
      */
-    public function getCreatedTime()
+    public function getCreatedTime(): ?string
     {
         return $this->getData(self::CREATED_AT);
     }
@@ -87,9 +98,9 @@ class Post extends AbstractModel implements PostInterface
     /**
      * Get updated time
      *
-     * @return string
+     * @return string|null
      */
-    public function getUpdatedTime()
+    public function getUpdatedTime(): ?string
     {
         return $this->getData(self::UPDATED_AT);
     }
@@ -100,9 +111,9 @@ class Post extends AbstractModel implements PostInterface
      * @param string $title
      * @return PostInterface
      */
-    public function setTitle($title)
+    public function setTitle(string $title): PostInterface
     {
-       return $this->setData(self::TITLE, $title);
+        return $this->setData(self::TITLE, $title);
     }
 
     /**
@@ -111,7 +122,7 @@ class Post extends AbstractModel implements PostInterface
      * @param string $content
      * @return PostInterface
      */
-    public function setContent($content)
+    public function setContent(string $content): PostInterface
     {
         return $this->setData(self::CONTENT, $content);
     }
@@ -122,7 +133,7 @@ class Post extends AbstractModel implements PostInterface
      * @param string $announce
      * @return PostInterface
      */
-    public function setAnnounce($announce)
+    public function setAnnounce(string $announce): PostInterface
     {
         return $this->setData(self::ANNOUNCE, $announce);
     }
@@ -133,7 +144,7 @@ class Post extends AbstractModel implements PostInterface
      * @param string $publishDate
      * @return PostInterface
      */
-    public function setPublishDate($publishDate)
+    public function setPublishDate(string $publishDate): PostInterface
     {
         return $this->setData(self::PUBLISH_DATE, $publishDate);
     }
@@ -144,7 +155,7 @@ class Post extends AbstractModel implements PostInterface
      * @param bool $isPublished
      * @return PostInterface
      */
-    public function setPostStatus($isPublished)
+    public function setPostStatus(bool $isPublished): PostInterface
     {
         return $this->setData(self::IS_PUBLISHED, $isPublished);
     }
@@ -155,7 +166,7 @@ class Post extends AbstractModel implements PostInterface
      * @param string $createdTime
      * @return PostInterface
      */
-    public function setCreatedTime($createdTime)
+    public function setCreatedTime(string $createdTime): PostInterface
     {
         return $this->setData(self::CREATED_AT, $createdTime);
     }
@@ -166,7 +177,7 @@ class Post extends AbstractModel implements PostInterface
      * @param string $updatedTime
      * @return PostInterface
      */
-    public function setUpdatedTime($updatedTime)
+    public function setUpdatedTime(string $updatedTime): PostInterface
     {
         return $this->setData(self::UPDATED_AT, $updatedTime);
     }

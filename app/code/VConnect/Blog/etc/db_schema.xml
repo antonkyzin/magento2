@@ -2,7 +2,7 @@
 
 <schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
-    <table name="posts" engine="innodb" comment="Table with posts">
+    <table name="vconnect_blog_posts" engine="innodb" comment="Table with posts">
         <column xsi:type="int" name="post_id" unsigned="true" nullable="false" identity="true" comment="Post ID"/>
         <column xsi:type="varchar" name="title" nullable="false" length="255" comment="Post Title"/>
         <column xsi:type="text" name="content" nullable="false" comment="Post Content"/>
@@ -12,7 +12,7 @@
         <column xsi:type="boolean" name="is_published" nullable="false" comment="Post Was Published"/>
         <column xsi:type="timestamp" name="created_at" nullable="false" on_update="false" default="CURRENT_TIMESTAMP"
                 comment="Post Was Created At"/>
-        <column xsi:type="timestamp" name="updated_at" nullable="false" on_update="false" default="CURRENT_TIMESTAMP"
+        <column xsi:type="timestamp" name="updated_at" nullable="false" on_update="true" default="CURRENT_TIMESTAMP"
                 comment="Post Was Updated At"/>
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="post_id"/>
