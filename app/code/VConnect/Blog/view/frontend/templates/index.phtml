@@ -20,16 +20,17 @@ $viewModel = $block->getData('view_model');
 
     <?php foreach ($viewModel->getPosts() as $post): ?>
         <?php /** @var VConnect\Blog\Model\Post $post */ ?>
-        <tr>
-            <td><?= $post->getPostId() ?></td>
-            <td><?= $post->getTitle() ?></td>
-            <td><?= $post->getContent() ?></td>
-            <td><?= $post->getAnnounce() ?></td>
-            <td><?= $post->getPublishDate() ?></td>
-            <td><?= $post->getPostStatus() ?></td>
-            <td><?= $post->getCreatedTime() ?></td>
-            <td><?= $post->getUpdatedTime() ?></td>
-        </tr>
+        <?php if ($post->getPostStatus() == 1): ?>
+            <tr>
+                <td><?= $post->getPostId() ?></td>
+                <td><?= $post->getTitle() ?></td>
+                <td><?= $post->getContent() ?></td>
+                <td><?= $post->getAnnounce() ?></td>
+                <td><?= $post->getPublishDate() ?></td>
+                <td><?= $post->getCreatedTime() ?></td>
+                <td><?= $post->getUpdatedTime() ?></td>
+            </tr>
+        <?php endif ?>
     <?php endforeach; ?>
 </table>
 

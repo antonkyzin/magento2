@@ -5,4 +5,28 @@
     <preference for="VConnect\Blog\Api\PostRepositoryInterface" type="VConnect\Blog\Model\PostRepository"/>
     <preference for="VConnect\Blog\Api\Data\PostInterface" type="VConnect\Blog\Model\Post"/>
     <preference for="VConnect\Blog\Api\Data\PostSearchResultsInterface" type="VConnect\Blog\Model\PostSearchResults"/>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="vconnect_posts_listing_data_source" xsi:type="string">
+                    VConnect\Blog\Model\ResourceModel\Post\Collection
+                </item>
+            </argument>
+            <argument name="collections" xsi:type="array">
+                <item name="blog_post_form_data_source" xsi:type="string">
+                    VConnect\Blog\Model\ResourceModel\Post\Collection
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="VConnect\Blog\Model\ResourceModel\Post\Collection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">vconnect_blog_posts</argument>
+            <argument name="resourceModel" xsi:type="string">VConnect\Blog\Model\ResourceModel\Post</argument>
+        </arguments>
+    </virtualType>
+
 </config>
