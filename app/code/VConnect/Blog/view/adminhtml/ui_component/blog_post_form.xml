@@ -16,6 +16,11 @@
                 <class>primary</class>
                 <label translate="true">Save Post</label>
             </button>
+            <button name="back">
+                <url path="*/*/"/>
+                <class>primary</class>
+                <label translate="true">Back</label>
+            </button>
         </buttons>
         <namespace>blog_post_form</namespace>
         <dataScope>data</dataScope>
@@ -32,10 +37,10 @@
         <settings>
             <submitUrl path="blog/posts/save"/>
         </settings>
-        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider"
+        <dataProvider class="VConnect\Blog\Model\Post\DataProvider"
                       name="blog_post_form_data_source">
             <settings>
-                <requestFieldName>id</requestFieldName>
+                <requestFieldName>post_id</requestFieldName>
                 <primaryFieldName>post_id</primaryFieldName>
             </settings>
         </dataProvider>

@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace VConnect\Blog\Controller\Adminhtml\Posts;
 
+use Magento\Framework\Exception\CouldNotSaveException;
 use VConnect\Blog\Model\PostFactory;
 use VConnect\Blog\Model\PostRepository;
 use Magento\Backend\App\Action;
@@ -24,11 +25,10 @@ class Save extends Action
      * @param PostRepository $postRepository
      */
     public function __construct(
-        Context $context,
-        PostFactory $postFactory,
+        Context        $context,
+        PostFactory    $postFactory,
         PostRepository $postRepository
-    )
-    {
+    ) {
         parent::__construct($context);
         $this->postFactory = $postFactory;
         $this->postRepository = $postRepository;
@@ -41,7 +41,12 @@ class Save extends Action
         $resultRedirect = $this->resultRedirectFactory->create();
         $data = $this->context->getRequest()->getPostValue();
         $post = $this->postFactory->create();
-        $this->postRepository->save($post->addData($data));
+        try {
+            $this->postRepository->save($post->addData($data));
+            $this->messageManager->addSuccessMessage('Post successfully saved');
+        } catch (CouldNotSaveException $couldNotSaveException) {
+            $this->messageManager->addErrorMessage($couldNotSaveException->getMessage());
+        }
 
         return $resultRedirect->setPath('*/*/');
     }

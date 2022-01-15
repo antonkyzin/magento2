@@ -26,6 +26,7 @@ interface PostRepositoryInterface
      *
      * @param string $postId
      * @return \VConnect\Blog\Api\Data\PostInterface
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function getById(string $postId): Data\PostInterface;
 

@@ -76,10 +76,10 @@ interface PostInterface
     /**
      * Set ID
      *
-     * @param int $id
+     * @param string $id
      * @return PostInterface
      */
-    public function setPostId(int $id): PostInterface;
+    public function setPostId(string $id): PostInterface;
 
     /**
      * Set title

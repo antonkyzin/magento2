@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace VConnect\Blog\Model;
 
 use Magento\Framework\Api\SortOrder;
+use Magento\Framework\Exception\NoSuchEntityException;
 use VConnect\Blog\Api\Data\PostSearchResultsInterface;
 use Magento\Framework\Api\SearchCriteriaInterface;
 use Magento\Framework\Exception\LocalizedException;
@@ -76,12 +77,15 @@ class PostRepository implements PostRepositoryInterface
      *
      * @param string $postId
      * @return PostInterface
+     * @throws NoSuchEntityException
      */
     public function getById(string $postId): PostInterface
     {
         $post = $this->postFactory->create();
         $this->postResourceModel->load($post, $postId);
-
+        if(!$post->getPostId()){
+            throw new NoSuchEntityException(__('Unable to find post with ID "%1"', $postId));
+        }
         return $post;
     }
 
