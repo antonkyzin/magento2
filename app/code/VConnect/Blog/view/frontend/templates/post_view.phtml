@@ -7,23 +7,26 @@
 $viewModel = $block->getData('view_model');
 ?>
 
+<nav>
+    <a href="/blog">Back</a>
+</nav>
+
 <table>
     <tr>
         <th>title</th>
-        <th>announce</th>
+        <th>content</th>
+        <th>Created at</th>
+        <th>Published at</th>
+        <th>Updated at</th>
     </tr>
     <?php foreach ($viewModel->getPosts() as $post): ?>
         <?php /** @var VConnect\Blog\Model\Post $post */ ?>
         <tr>
             <td><?= $escaper->escapeHtml($post->getTitle()) ?></td>
-            <td><?= $escaper->escapeHtml($post->getAnnounce()) ?></td>
-            <td><a href="/blog/post/postview/post_id/<?= $post->getPostId() ?>">Read post</a></td>
+            <td><?= $post->getContent() ?></td>
+            <td><?= $escaper->escapeHtml($post->getCreatedTime()) ?></td>
+            <td><?= $escaper->escapeHtml($post->getPublishDate()) ?></td>
+            <td><?= $escaper->escapeHtml($post->getUpdatedTime()) ?></td>
         </tr>
     <?php endforeach; ?>
 </table>
-
-<form action="/blog" method="post">
-    <label>Page size</label>
-    <input type="number" name="page_size">
-    <button type="submit">Get</button>
-</form>
