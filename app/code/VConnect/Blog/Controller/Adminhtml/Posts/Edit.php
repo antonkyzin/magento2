@@ -16,10 +16,10 @@ class Edit extends Action
     private PostRepositoryInterface $postRepository;
 
     public function __construct(
-        Context $context,
-        PageFactory $resultPageFactory,
+        Context                 $context,
+        PageFactory             $resultPageFactory,
         PostRepositoryInterface $postRepository,
-        ManagerInterface $messageManager
+        ManagerInterface        $messageManager
     ) {
         parent::__construct($context);
         $this->resultPageFactory = $resultPageFactory;
@@ -35,8 +35,7 @@ class Edit extends Action
             $this->postRepository->getById($postId);
             $resultPage->getConfig()->getTitle()->prepend((__('Edit post')));
             return $resultPage;
-        } catch (NoSuchEntityException $entityException)
-        {
+        } catch (NoSuchEntityException $entityException) {
             $this->messageManager->addErrorMessage($entityException->getMessage());
             /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
             $resultRedirect = $this->resultRedirectFactory->create();

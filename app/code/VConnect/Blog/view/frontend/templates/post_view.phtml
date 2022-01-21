@@ -1,25 +1,24 @@
 <?php
 /**
  * @var Magento\Framework\View\Element\Template $block
- * @var VConnect\Blog\ViewModel\Posts $viewModel
  * @var Magento\Framework\Escaper $escaper
  */
-$viewModel = $block->getData('view_model');
 ?>
-
 <nav>
     <a href="/blog">Back</a>
 </nav>
 
-<table>
-    <tr>
-        <th>title</th>
-        <th>content</th>
-        <th>Created at</th>
-        <th>Published at</th>
-        <th>Updated at</th>
-    </tr>
-    <?php foreach ($viewModel->getPosts() as $post): ?>
+<?php $post = $block->getPost(); ?>
+<?php if (isset($post)): ?>
+    <table>
+        <tr>
+            <th>title</th>
+            <th>content</th>
+            <th>Created at</th>
+            <th>Published at</th>
+            <th>Updated at</th>
+        </tr>
+
         <?php /** @var VConnect\Blog\Model\Post $post */ ?>
         <tr>
             <td><?= $escaper->escapeHtml($post->getTitle()) ?></td>
@@ -28,5 +27,8 @@ $viewModel = $block->getData('view_model');
             <td><?= $escaper->escapeHtml($post->getPublishDate()) ?></td>
             <td><?= $escaper->escapeHtml($post->getUpdatedTime()) ?></td>
         </tr>
-    <?php endforeach; ?>
-</table>
+
+    </table>
+<?php else: ?>
+    <?= __('The post was deleted or unpublished') ?>
+<?php endif; ?>

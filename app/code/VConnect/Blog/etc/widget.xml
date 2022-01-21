@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget class="VConnect\Blog\Block\Widget\Posts" id="vconnect_blog_posts">
+        <label>Blog Posts</label>
+        <description>Posts</description>
+        <parameters>
+            <parameter name="posts_per_page" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Posts per Page</label>
+                <value>5</value>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

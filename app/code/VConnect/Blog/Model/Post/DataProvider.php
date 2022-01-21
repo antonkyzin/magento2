@@ -7,7 +7,7 @@ use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Ui\DataProvider\AbstractDataProvider;
 use VConnect\Blog\Api\Data\PostInterface;
 use VConnect\Blog\Api\PostRepositoryInterface;
-use VConnect\Blog\Model\PostFactory;
+use VConnect\Blog\Api\Data\PostInterfaceFactory;
 use Magento\Framework\App\ObjectManager;
 use Magento\Framework\App\RequestInterface;
 use VConnect\Blog\Model\ResourceModel\Post\CollectionFactory;
@@ -17,7 +17,7 @@ class DataProvider extends AbstractDataProvider
     protected array $loadedData;
     private PostRepositoryInterface $postRepository;
     private RequestInterface $request;
-    private PostFactory $postFactory;
+    private PostInterfaceFactory $postFactory;
 
     /**
      * @param string $name
@@ -28,7 +28,7 @@ class DataProvider extends AbstractDataProvider
      * @param array $data
      * @param RequestInterface|null $request
      * @param PostRepositoryInterface|null $postRepository
-     * @param PostFactory|null $postFactory
+     * @param PostInterfaceFactory|null $postFactory
      */
     public function __construct(
         $name,
@@ -39,14 +39,13 @@ class DataProvider extends AbstractDataProvider
         array $data = [],
         ?RequestInterface $request = null,
         ?PostRepositoryInterface $postRepository = null,
-        ?PostFactory $postFactory = null
-    )
-    {
+        ?PostInterfaceFactory $postFactory = null
+    ) {
         parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
         $this->collection = $postCollectionFactory->create();
         $this->request = $request ?? ObjectManager::getInstance()->get(RequestInterface::class);
         $this->postRepository = $postRepository ?? ObjectManager::getInstance()->get(PostRepositoryInterface::class);
-        $this->postFactory = $postFactory ?: ObjectManager::getInstance()->get(PostFactory::class);
+        $this->postFactory = $postFactory ?: ObjectManager::getInstance()->get(PostInterfaceFactory::class);
     }
 
     /**
@@ -72,22 +71,25 @@ class DataProvider extends AbstractDataProvider
     private function getCurrentPost(): PostInterface
     {
         $postId = $this->getPostId();
-        try {
-            $post = $this->postRepository->getById($postId);
-        } catch (NoSuchEntityException $noSuchEntityException) {
+        if (!isset($postId)) {
             $post = $this->postFactory->create();
+        } else {
+            try {
+                $post = $this->postRepository->getById($postId);
+            } catch (NoSuchEntityException $noSuchEntityException) {
+                $post = $this->postFactory->create();
+            }
         }
-
         return $post;
     }
 
     /**
      * Returns current post id from request
      *
-     * @return string
+     * @return string|null
      */
-    private function getPostId(): string
+    private function getPostId(): ?string
     {
-        return (string)$this->request->getParam($this->getRequestFieldName());
+        return $this->request->getParam($this->getRequestFieldName()) ?? null;
     }
 }

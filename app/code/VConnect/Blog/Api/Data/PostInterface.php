@@ -16,6 +16,7 @@ interface PostInterface
     public const IS_PUBLISHED = 'is_published';
     public const CREATED_AT = 'created_at';
     public const UPDATED_AT = 'updated_at';
+    public const URL_KEY = 'url_key';
 
     /**
      * Get ID
@@ -74,66 +75,81 @@ interface PostInterface
     public function getUpdatedTime(): ?string;
 
     /**
+     * Get url key
+     *
+     * @return string|null
+     */
+    public function getUrlKey(): ?string;
+
+    /**
      * Set ID
      *
      * @param string $id
-     * @return PostInterface
+     * @return void
      */
-    public function setPostId(string $id): PostInterface;
+    public function setPostId(string $id): void;
 
     /**
      * Set title
      *
      * @param string $title
-     * @return PostInterface
+     * @return void
      */
-    public function setTitle(string $title): PostInterface;
+    public function setTitle(string $title): void;
 
     /**
      * Set content
      *
      * @param string $content
-     * @return PostInterface
+     * @return void
      */
-    public function setContent(string $content): PostInterface;
+    public function setContent(string $content): void;
 
     /**
      * Set announce
      *
      * @param string $announce
-     * @return PostInterface
+     * @return void
      */
-    public function setAnnounce(string $announce): PostInterface;
+    public function setAnnounce(string $announce): void;
 
     /**
      * Set publish date
      *
      * @param string $publishDate
-     * @return PostInterface
+     * @return void
      */
-    public function setPublishDate(string $publishDate): PostInterface;
+    public function setPublishDate(string $publishDate): void;
 
     /**
      * Set post status
      *
-     * @param bool $isPublished
-     * @return PostInterface
+     * @param string $isPublished
+     * @return void
      */
-    public function setPostStatus(bool $isPublished): PostInterface;
+    public function setPostStatus(string $isPublished): void;
 
     /**
      * Set created time
      *
      * @param string $createdTime
-     * @return PostInterface
+     * @return void
      */
-    public function setCreatedTime(string $createdTime): PostInterface;
+    public function setCreatedTime(string $createdTime): void;
+
+    /**
+     * Set url key
+     *
+     * @param string $urlKey
+     * @return void
+     */
+    public function setUrlKey(string $urlKey): void;
 
     /**
      * Set updated time
      *
      * @param string $updatedTime
-     * @return PostInterface
+     * @return void
      */
-    public function setUpdatedTime(string $updatedTime): PostInterface;
+    public function setUpdatedTime(string $updatedTime): void;
 }

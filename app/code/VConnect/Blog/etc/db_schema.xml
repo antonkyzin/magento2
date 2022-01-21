@@ -9,13 +9,17 @@
         <column xsi:type="text" name="announce" nullable="false" comment="Post Announce"/>
         <column xsi:type="timestamp" name="publish_date" nullable="false" on_update="false" default="CURRENT_TIMESTAMP"
                 comment="Post Publish Date"/>
-        <column xsi:type="boolean" name="is_published" nullable="false" comment="Post Was Published"/>
+        <column xsi:type="boolean" name="is_published" nullable="false" default="1" comment="Post Was Published"/>
         <column xsi:type="timestamp" name="created_at" nullable="false" on_update="false" default="CURRENT_TIMESTAMP"
                 comment="Post Was Created At"/>
         <column xsi:type="timestamp" name="updated_at" nullable="false" on_update="true" default="CURRENT_TIMESTAMP"
                 comment="Post Was Updated At"/>
+        <column xsi:type="varchar" name="url_key" nullable="false" length="255" comment="Url key"/>
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="post_id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="url_key">
+            <column name="url_key"/>
         </constraint>
     </table>
 </schema>

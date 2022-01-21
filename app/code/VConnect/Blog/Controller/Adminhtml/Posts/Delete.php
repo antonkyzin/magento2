@@ -5,7 +5,6 @@ namespace VConnect\Blog\Controller\Adminhtml\Posts;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
-use Magento\Framework\View\Result\PageFactory;
 use VConnect\Blog\Model\PostRepository;
 
 class Delete extends Action
@@ -14,12 +13,10 @@ class Delete extends Action
 
     /**
      * @param Context $context
-     * @param PageFactory $pageFactory
      * @param PostRepository $postRepository
      */
     public function __construct(
         Context $context,
-        PageFactory $pageFactory,
         PostRepository $postRepository
     ){
         parent::__construct($context);
@@ -34,7 +31,7 @@ class Delete extends Action
         try {
             $post = $this->postRepository->getById($postId);
             $this->postRepository->delete($post);
-            $this->messageManager->addSuccessMessage('Post successfully deleted');
+            $this->messageManager->addSuccessMessage('Posts successfully deleted');
         } catch (\Exception $exception) {
             $this->messageManager->addErrorMessage($exception->getMessage());
         }

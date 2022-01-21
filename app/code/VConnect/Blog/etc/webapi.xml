@@ -3,31 +3,31 @@
     <route method="GET" url="/V1/vconnect_blog/:postId">
         <service class="VConnect\Blog\Api\PostRepositoryInterface" method="getById"/>
         <resources>
-            <resource ref="anonymous"/>
+            <resource ref="VConnect_Blog::posts"/>
         </resources>
     </route>
     <route method="GET" url="/V1/vconnect_blog">
         <service class="VConnect\Blog\Api\PostRepositoryInterface" method="getList"/>
         <resources>
-            <resource ref="anonymous"/>
+            <resource ref="VConnect_Blog::posts"/>
         </resources>
     </route>
     <route method="POST" url="/V1/vconnect_blog">
         <service class="VConnect\Blog\Api\PostRepositoryInterface" method="save"/>
         <resources>
-            <resource ref="anonymous"/>
+            <resource ref="VConnect_Blog::save"/>
         </resources>
     </route>
     <route method="PUT" url="/V1/vconnect_blog">
         <service class="VConnect\Blog\Api\PostRepositoryInterface" method="save"/>
         <resources>
-            <resource ref="anonymous"/>
+            <resource ref="VConnect_Blog::save"/>
         </resources>
     </route>
     <route method="DELETE" url="/V1/vconnect_blog">
         <service class="VConnect\Blog\Api\PostRepositoryInterface" method="delete"/>
         <resources>
-            <resource ref="anonymous"/>
+            <resource ref="VConnect_Blog::delete"/>
         </resources>
     </route>
 </routes>

@@ -60,6 +60,29 @@
                 <dataType>boolean</dataType>
                 <label translate="true">Show in blog</label>
                 <dataScope>is_published</dataScope>
+                <switcherConfig>
+                    <rules>
+                        <rule name="0">
+                            <value>1</value>
+                            <actions>
+                                <action name="0">
+                                    <target>blog_post_form.blog_post_form.post.publish_date</target>
+                                    <callback>hide</callback>
+                                </action>
+                            </actions>
+                        </rule>
+                        <rule name="1">
+                            <value>0</value>
+                            <actions>
+                                <action name="0">
+                                    <target>blog_post_form.blog_post_form.post.publish_date</target>
+                                    <callback>show</callback>
+                                </action>
+                            </actions>
+                        </rule>
+                    </rules>
+                    <enabled>true</enabled>
+                </switcherConfig>
             </settings>
             <formElements>
                 <checkbox>
@@ -73,6 +96,23 @@
                 </checkbox>
             </formElements>
         </field>
+        <field name="publish_date" formElement="date">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Scheduled publishing date</label>
+            </settings>
+            <formElements>
+                <date>
+                    <settings>
+                        <options>
+                            <option name="showsTime" xsi:type="boolean">true</option>
+                            <option name="dateFormat" xsi:type="string">YYYY-MM-dd</option>
+                            <option name="timeFormat" xsi:type="string">HH:mm</option>
+                        </options>
+                    </settings>
+                </date>
+            </formElements>
+        </field>
         <field name="title" sortOrder="20" formElement="input">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -80,6 +120,9 @@
                 </item>
             </argument>
             <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
                 <dataType>text</dataType>
                 <label translate="true">Title</label>
                 <dataScope>title</dataScope>
@@ -92,6 +135,9 @@
                 </item>
             </argument>
             <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
                 <dataType>text</dataType>
                 <label translate="true">Content</label>
                 <dataScope>content</dataScope>
@@ -111,9 +157,24 @@
                 </item>
             </argument>
             <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
                 <dataType>text</dataType>
                 <label translate="true">Announce</label>
                 <dataScope>announce</dataScope>
+            </settings>
+        </field>
+        <field name="url_key" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">block</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Url_key</label>
+                <dataScope>url_key</dataScope>
             </settings>
         </field>
     </fieldset>

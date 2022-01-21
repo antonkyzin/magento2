@@ -18,7 +18,13 @@
                  type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
             <argument name="mainTable" xsi:type="string">vconnect_blog_posts</argument>
-<!--            <argument name="resourceModel" xsi:type="string">VConnect\Blog\Model\ResourceModel\Post</argument>-->
         </arguments>
     </virtualType>
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="posts:publish" xsi:type="object">VConnect\Blog\Console\Command\PostsPublish</item>
+            </argument>
+        </arguments>
+    </type>
 </config>

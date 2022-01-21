@@ -6,7 +6,9 @@
             <resource id="Magento_Backend::admin">
                 <resource id="Magento_Backend::content">
                     <resource id="Magento_Backend::content_elements">
-                        <resource id="VConnect_Blog::posts" title="Posts acl" translate="title" sortOrder="100" />
+                        <resource id="VConnect_Blog::posts" title="Posts list" translate="title" sortOrder="100" />
+                        <resource id="VConnect_Blog::save" title="Create post" translate="title" sortOrder="110" />
+                        <resource id="VConnect_Blog::delete" title="Delete post" translate="title" sortOrder="120" />
                     </resource>
                 </resource>
             </resource>

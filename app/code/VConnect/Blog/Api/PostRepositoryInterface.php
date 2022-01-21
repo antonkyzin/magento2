@@ -9,17 +9,17 @@ interface PostRepositoryInterface
      * Save post
      *
      * @param \VConnect\Blog\Api\Data\PostInterface $post
-     * @return \VConnect\Blog\Api\Data\PostInterface
+     * @return void
      */
-    public function save(Data\PostInterface $post): Data\PostInterface;
+    public function save(Data\PostInterface $post): void;
 
     /**
      * Delete post
      *
      * @param \VConnect\Blog\Api\Data\PostInterface $post
-     * @return bool true on success
+     * @return void
      */
-    public function delete(Data\PostInterface $post): bool;
+    public function delete(Data\PostInterface $post): void;
 
     /**
      * Retrieve post.

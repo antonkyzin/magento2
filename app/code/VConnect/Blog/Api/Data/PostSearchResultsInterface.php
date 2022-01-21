@@ -7,12 +7,12 @@ use Magento\Framework\Api\SearchResultsInterface;
 interface PostSearchResultsInterface extends SearchResultsInterface
 {
     /**
-     * @return \VConnect\Blog\Api\Data\PostInterface[]
+     * @return \VConnect\Blog\Api\Data\PostInterface
      */
     public function getItems();
 
     /**
-     * @param \VConnect\Blog\Api\Data\PostInterface[] $items
+     * @param \VConnect\Blog\Api\Data\PostInterface $items
      * @return $this
      */
     public function setItems(array $items);
