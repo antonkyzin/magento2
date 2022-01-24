@@ -16,7 +16,6 @@ class Posts extends Template implements IdentityInterface
     private SearchCriteriaBuilder $searchCriteriaBuilder;
     private PostRepository $postRepository;
     private array $posts;
-    private Template\Context $context;
 
     /**
      * @param Template\Context $context
@@ -36,22 +35,21 @@ class Posts extends Template implements IdentityInterface
         $this->sortOrder = $sortOrder;
         $this->searchCriteriaBuilder = $searchCriteriaBuilder;
         $this->postRepository = $postRepository;
-        $this->context = $context;
     }
 
     /**
-     * Get current post or post collection
+     *  Get posts collection
      *
+     * @return Post[]
+     * @throws \Magento\Framework\Exception\InputException
      */
     public function getPosts(): array
     {
-//        $currentPage = $this->context->getRequest()->getParam('page') ?? '1';
         $this->sortOrder->setField('publish_date')->setDirection('DESC');
         $searchCriteria = $this->searchCriteriaBuilder
             ->setSortOrders([$this->sortOrder])
             ->addFilter('is_published', '1')
             ->setPageSize(10)
-//            ->setCurrentPage($currentPage)
             ->create();
         $this->posts = $this->postRepository->getList($searchCriteria)->getItems();
 

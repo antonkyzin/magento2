@@ -27,9 +27,9 @@ class PostView implements ActionInterface
      * @param RedirectFactory $redirectFactory
      */
     public function __construct(
-        Context         $context,
-        PageFactory     $pageFactory,
-        PostRepository  $postRepository,
+        Context $context,
+        PageFactory $pageFactory,
+        PostRepository $postRepository,
         RedirectFactory $redirectFactory
     ) {
         $this->pageFactory = $pageFactory;

@@ -9,6 +9,9 @@ class PostPublisher
 {
     private PostPublishingManager $postPublishingManager;
 
+    /**
+     * @param PostPublishingManager $postPublishingManager
+     */
     public function __construct(PostPublishingManager $postPublishingManager)
     {
         $this->postPublishingManager = $postPublishingManager;

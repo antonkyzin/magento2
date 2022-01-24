@@ -33,7 +33,7 @@ class Router implements RouterInterface
      * @param RequestInterface $request
      * @return ActionInterface|null
      */
-    public function match(RequestInterface $request)
+    public function match(RequestInterface $request): ?ActionInterface
     {
         $identifier = trim($request->getPathInfo(), '/');
         try {

@@ -1,25 +1,29 @@
 <?php
 /**
- * @var Magento\Framework\View\Element\Template $block
+ * @var VConnect\Blog\Block\Widget\Posts $block
  * @var Magento\Framework\Escaper $escaper
  */
 ?>
 <?php $posts = $block->getPosts(); ?>
 <?php if ($posts): ?>
-    <table>
-        <tr>
-            <th>title</th>
-            <th>announce</th>
-        </tr>
-        <?php foreach ($posts as $post): ?>
-            <?php /** @var VConnect\Blog\Model\Post $post */ ?>
-            <tr>
-                <td><?= $escaper->escapeHtml($post->getTitle()) ?></td>
-                <td><?= $escaper->escapeHtml($post->getAnnounce()) ?></td>
-                <td><a href="<?= $post->getUrlKey() ?>">Read post</a></td>
-            </tr>
-        <?php endforeach; ?>
-    </table>
+    <div class="products wrapper grid products-grid">
+        <ol class="products list items product-items">
+            <?php foreach ($posts as $post): ?>
+                <?php /** @var VConnect\Blog\Model\Post $post */ ?>
+                <li class="item product product-item">
+                    <div class="product-item-info">
+                        <div class="product details product-item-details">
+                            <strong>
+                                <a class="product-item-link" href="<?= $post->getUrlKey() ?>">
+                                    <?= $escaper->escapeHtml($post->getTitle()) ?></a>
+                            </strong>
+                        </div>
+                        <?= $escaper->escapeHtml($post->getAnnounce()) ?>
+                    </div>
+                </li>
+            <?php endforeach; ?>
+        </ol>
+    </div>
 <?php else: ?>
     <div class="message info empty">
         <div><?= $escaper->escapeHtml(__('Blog is empty')) ?></div>

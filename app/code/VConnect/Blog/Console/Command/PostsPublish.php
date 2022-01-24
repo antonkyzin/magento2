@@ -27,7 +27,7 @@ class PostsPublish extends Command
     protected function configure()
     {
         $this->setName('posts:publish');
-        $this->setDescription('Run Cron job for publishing posts.');
+        $this->setDescription('Run Cron job for publishing scheduled posts.');
     }
 
     /**

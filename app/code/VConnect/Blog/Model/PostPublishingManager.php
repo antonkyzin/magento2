@@ -5,8 +5,6 @@ namespace VConnect\Blog\Model;
 
 use Magento\Framework\Api\SearchCriteriaBuilder;
 use Magento\Framework\Exception\CouldNotSaveException;
-use VConnect\Blog\Api\Data\PostInterface;
-use VConnect\Blog\Model\PostRepository;
 
 class PostPublishingManager
 {
@@ -20,14 +18,13 @@ class PostPublishingManager
     public function __construct(
         SearchCriteriaBuilder $searchCriteriaBuilder,
         PostRepository $postRepository
-    )
-    {
+    ) {
         $this->searchCriteriaBuilder = $searchCriteriaBuilder;
         $this->postRepository = $postRepository;
     }
 
     /**
-     * Publish posts if publish date less than now
+     * Publish scheduled posts
      *
      * @return void
      */
@@ -39,13 +36,14 @@ class PostPublishingManager
             ->addFilter('publish_date', $date, 'lt')
             ->create();
         $posts = $this->postRepository->getList($searchCriteria)->getItems();
-        foreach ($posts as $post) {
-            /** @var $post PostInterface */
-            $post->setPostStatus('1');
-            try {
-                $this->postRepository->save($post);
-            } catch (CouldNotSaveException $exception) {
-                // silently skip
+        if (!empty($posts)) {
+            foreach ($posts as $post) {
+                $post->setPostStatus('1');
+                try {
+                    $this->postRepository->save($post);
+                } catch (CouldNotSaveException $exception) {
+                    // silently skip
+                }
             }
         }
     }

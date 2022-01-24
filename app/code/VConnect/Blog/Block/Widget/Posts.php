@@ -42,7 +42,8 @@ class Posts extends Template implements BlockInterface, IdentityInterface
 
     /**
      * Get current post or post collection
-     *
+     * @return Post[]
+     * @throws \Magento\Framework\Exception\InputException
      */
     public function getPosts(): array
     {

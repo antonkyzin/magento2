@@ -7,7 +7,7 @@ use Magento\Framework\Api\SearchResultsInterface;
 interface PostSearchResultsInterface extends SearchResultsInterface
 {
     /**
-     * @return \VConnect\Blog\Api\Data\PostInterface
+     * @return \VConnect\Blog\Api\Data\PostInterface[]
      */
     public function getItems();
 
