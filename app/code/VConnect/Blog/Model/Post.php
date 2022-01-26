@@ -84,7 +84,7 @@ class Post extends AbstractModel implements PostInterface, IdentityInterface
     /**
      * Get post status
      *
-     * @return string|int
+     * @return string|null
      */
     public function getPostStatus(): ?string
     {

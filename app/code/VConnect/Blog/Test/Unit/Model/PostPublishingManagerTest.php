@@ -1,13 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace VConnect\Blog\Test\Unit\Cron;
+namespace VConnect\Blog\Test\Unit\Model;
 
-use Magento\Framework\Api\SearchCriteriaInterface;
-use Magento\Framework\Exception\CouldNotSaveException;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use VConnect\Blog\Api\Data\PostInterface;
 use VConnect\Blog\Model\PostPublishingManager;
 use VConnect\Blog\Model\PostRepository;
 use Magento\Framework\Api\SearchCriteriaBuilder;
@@ -70,6 +67,8 @@ class PostPublishingManagerTest extends TestCase
      */
     public function testPublishScheduledPosts()
     {
+        $posts = [$this->postModel];
+
         $this->searchCriteriaBuilderMock->expects($this->any())
             ->method('addFilter')
             ->willReturnSelf();
@@ -81,12 +80,13 @@ class PostPublishingManagerTest extends TestCase
             ->willReturn($this->searchResultInterface);
         $this->searchResultInterface->expects($this->once())
             ->method('getItems')
-            ->willReturn($this->postModel);
-
+            ->willReturn($posts);
+        foreach ($posts as $post) {
+            $post->setPostStatus('1');
+            $this->postRepository->expects($this->any())
+                ->method('save')
+                ->with($post);
+        }
+        $this->postPublishingManager->publishScheduledPosts();
     }
-
-//    public function testSavePostException()
-//    {
-//
-//    }
 }

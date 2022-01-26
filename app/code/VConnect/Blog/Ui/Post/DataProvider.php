@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace VConnect\Blog\Model\Post;
+namespace VConnect\Blog\Ui\Post;
 
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Ui\DataProvider\AbstractDataProvider;

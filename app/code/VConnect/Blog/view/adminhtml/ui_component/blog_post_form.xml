@@ -37,7 +37,7 @@
         <settings>
             <submitUrl path="blog/posts/save"/>
         </settings>
-        <dataProvider class="VConnect\Blog\Model\Post\DataProvider"
+        <dataProvider class="VConnect\Blog\Ui\Post\DataProvider"
                       name="blog_post_form_data_source">
             <settings>
                 <requestFieldName>post_id</requestFieldName>
