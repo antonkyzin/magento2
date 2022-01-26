@@ -5,7 +5,7 @@
     <type name="Magento\Framework\App\RouterList">
         <arguments>
             <argument name="routerList" xsi:type="array">
-                <item name="default" xsi:type="array">
+                <item name="blogRouter" xsi:type="array">
                     <item name="class" xsi:type="string">VConnect\Blog\Controller\Router</item>
                     <item name="disable" xsi:type="boolean">false</item>
                     <item name="sortOrder" xsi:type="string">60</item>
