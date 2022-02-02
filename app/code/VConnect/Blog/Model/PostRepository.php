@@ -103,22 +103,4 @@ class PostRepository implements PostRepositoryInterface
 
         return $searchResults;
     }
-
-    /**
-     * Retrieve post by url key.
-     *
-     * @param string $uriKey
-     * @return PostInterface
-     * @throws NoSuchEntityException
-     */
-    public function getByUrlKey(string $uriKey): PostInterface
-    {
-        $post = $this->postFactory->create();
-        $this->postResourceModel->load($post, $uriKey, 'url_key');
-        if(!$post->getPostId()){
-            throw new NoSuchEntityException(__('Unable to find post with ID "%1"', $uriKey));
-        }
-
-        return $post;
-    }
 }
