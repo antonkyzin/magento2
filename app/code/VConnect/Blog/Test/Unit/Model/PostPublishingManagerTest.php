@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace VConnect\Blog\Test\Unit\Model;
 
+use Magento\Framework\Exception\CouldNotSaveException;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use VConnect\Blog\Model\PostPublishingManager;
