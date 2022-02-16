@@ -1,0 +1,7 @@
+{
+    "sales_order": {
+        "column": {
+            "extension_erp_id": true
+        }
+    }
+}
