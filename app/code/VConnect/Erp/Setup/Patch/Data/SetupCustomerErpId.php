@@ -67,6 +67,9 @@ class SetupCustomerErpId implements DataPatchInterface, PatchRevertableInterface
         $attribute->save();
     }
 
+    /**
+     * @return void
+     */
     public function revert()
     {
         $this->moduleDataSetup->getConnection()->startSetup();
