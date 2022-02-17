@@ -10,7 +10,7 @@ interface PostRepositoryInterface
      *
      * @param \VConnect\Blog\Api\Data\PostInterface $post
      * @return void
-     * @throws \Magento\Framework\Exception\CouldNotDeleteException
+     * @throws \Magento\Framework\Exception\CouldNotSaveException
      */
     public function save(Data\PostInterface $post): void;
 

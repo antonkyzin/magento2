@@ -471,7 +471,7 @@ namespace Magento\Setup\Test\Unit\Model {
                         ['Caches clearing:'],
                         ['Cache cleared successfully'],
                         ['Disabling Maintenance Mode:'],
-                        ['Post installation file permissions check...'],
+                        ['Posts installation file permissions check...'],
                         ['Write installation date...'],
                         ['Sample Data is installed with errors. See log file for details']
                     ],
@@ -523,7 +523,7 @@ namespace Magento\Setup\Test\Unit\Model {
                         ['Caches clearing:'],
                         ['Cache cleared successfully'],
                         ['Disabling Maintenance Mode:'],
-                        ['Post installation file permissions check...'],
+                        ['Posts installation file permissions check...'],
                         ['Write installation date...'],
                         ['Sample Data is installed with errors. See log file for details']
                     ],

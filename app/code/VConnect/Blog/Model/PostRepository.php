@@ -10,21 +10,22 @@ use Magento\Framework\Api\SearchCriteriaInterface;
 use VConnect\Blog\Api\PostRepositoryInterface;
 use VConnect\Blog\Model\ResourceModel\Post as PostResourceModel;
 use VConnect\Blog\Api\Data\PostSearchResultsInterfaceFactory;
-use \Magento\Framework\Exception\CouldNotSaveException;
-use \Magento\Framework\Exception\CouldNotDeleteException;
+use Magento\Framework\Exception\CouldNotSaveException;
+use Magento\Framework\Exception\CouldNotDeleteException;
 use VConnect\Blog\Api\Data\PostInterface;
+use VConnect\Blog\Api\Data\PostInterfaceFactory;
 use VConnect\Blog\Model\ResourceModel\Post\CollectionFactory;
 
 class PostRepository implements PostRepositoryInterface
 {
-    private PostFactory $postFactory;
+    private PostInterfaceFactory $postFactory;
     private PostResourceModel $postResourceModel;
     private PostSearchResultsInterfaceFactory $searchResultsFactory;
     private CollectionFactory $collectionFactory;
     private CollectionProcessorInterface $collectionProcessor;
 
     public function __construct(
-        PostFactory $postFactory,
+        PostInterfaceFactory $postFactory,
         PostResourceModel $postResourceModel,
         PostSearchResultsInterfaceFactory $searchResultsFactory,
         CollectionFactory $collectionFactory,

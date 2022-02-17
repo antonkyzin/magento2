@@ -19,7 +19,7 @@ use Magento\TestFramework\TestCase\GraphQlAbstract;
  * | Code                   | Label
  * --------------------------------------
  * | FEDEX_GROUND           | Ground
- * | SMART_POST             | Smart Post
+ * | SMART_POST             | Smart Posts
  * | FEDEX_EXPRESS_SAVER    | Express Saver
  * | PRIORITY_OVERNIGHT     | Priority Overnight
  * | FEDEX_2_DAY            | 2 Day
@@ -108,7 +108,7 @@ class SetFedExShippingMethodsOnCartTest extends GraphQlAbstract
     {
         return [
             'Ground' => ['FEDEX_GROUND', 'Ground'],
-            'Smart Post' => ['SMART_POST', 'Smart Post'],
+            'Smart Posts' => ['SMART_POST', 'Smart Posts'],
             'Express Saver' => ['FEDEX_EXPRESS_SAVER', 'Express Saver'],
             'Priority Overnight' => ['PRIORITY_OVERNIGHT', 'Priority Overnight'],
             '2 Day' => ['FEDEX_2_DAY', '2 Day'],
@@ -203,9 +203,9 @@ mutation {
           method_title
         }
       }
-    } 
+    }
   }
-}        
+}
 QUERY;
     }
 

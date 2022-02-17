@@ -50,7 +50,7 @@ class Processor
     public $baseUrl;
 
     /**
-     * Post data
+     * Posts data
      *
      * @var array
      */

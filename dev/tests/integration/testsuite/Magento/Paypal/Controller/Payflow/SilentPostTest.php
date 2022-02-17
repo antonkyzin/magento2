@@ -65,7 +65,7 @@ class SilentPostTest extends AbstractController
     }
 
     /**
-     * Checks a test case when Payflow Link callback action receives Silent Post notification with transaction details.
+     * Checks a test case when Payflow Link callback action receives Silent Posts notification with transaction details.
      *
      * @param int $resultCode
      * @param string $orderState
@@ -89,7 +89,7 @@ class SilentPostTest extends AbstractController
     }
 
     /**
-     * Get list of different variations for Silent Post action testing,
+     * Get list of different variations for Silent Posts action testing,
      * like different response codes from PayPal.
      *
      * @return array
@@ -103,7 +103,7 @@ class SilentPostTest extends AbstractController
     }
 
     /**
-     * Checks a test case when Payflow Link callback receives Silent Post notification from PayPal
+     * Checks a test case when Payflow Link callback receives Silent Posts notification from PayPal
      * with fraudulent transaction and PayPal gateway configured to reject this kind of transactions.
      *
      * @magentoDataFixture Magento/Paypal/_files/order_payflow_link.php
