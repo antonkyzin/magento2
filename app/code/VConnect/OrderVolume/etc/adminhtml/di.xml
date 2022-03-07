@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Sales\Block\Adminhtml\Order\View\Items\Renderer\DefaultRenderer">
+        <plugin name="render_volume_in_adminhtml_order_view" type="VConnect\OrderVolume\Plugin\Block\Adminhtml\Order\View\Items\RenderVolumeInOrderViewPlugin"/>
+    </type>
+</config>

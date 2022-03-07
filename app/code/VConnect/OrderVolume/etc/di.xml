@@ -16,9 +16,6 @@
     <type name="Magento\Sales\Model\OrderRepository">
         <plugin name="set_volume_to_order" type="VConnect\OrderVolume\Plugin\OrderRepositoryPlugin"/>
     </type>
-    <type name="Magento\Sales\Block\Adminhtml\Order\View\Items\Renderer\DefaultRenderer">
-        <plugin name="render_volume_in_adminhtml_order_view" type="VConnect\OrderVolume\Plugin\Block\Adminhtml\Order\View\Items\RenderVolumeInOrderViewPlugin"/>
-    </type>
     <virtualType name="Magento\Sales\Model\ResourceModel\Order\Grid" type="Magento\Sales\Model\ResourceModel\Grid">
         <arguments>
             <argument name="columns" xsi:type="array">
