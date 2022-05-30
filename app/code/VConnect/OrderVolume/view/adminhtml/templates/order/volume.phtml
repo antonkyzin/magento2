@@ -1,0 +1,15 @@
+
+<?php
+/**
+ * @var \VConnect\OrderVolume\Block\Adminhtml\Order\RenderVolume $block
+ */
+$volume = $block->getVolume();
+?>
+<div class="admin__page-section-item order-custom-information">
+    <div class="admin__page-section-item-title">
+        <span class="title">Order volume</span>
+    </div>
+    <div class="admin__page-section-item-content">
+        <div class="order-custom-information-title">Order volume: <?= $volume?></div>
+    </div>
+</div>

@@ -19,5 +19,9 @@
                 </argument>
             </arguments>
         </referenceBlock>
+        <referenceBlock name="order_additional_info">
+            <block class="VConnect\OrderVolume\Block\Adminhtml\Order\RenderVolume" name="order_volume"
+                   template="VConnect_OrderVolume::order/volume.phtml"/>
+        </referenceBlock>
     </body>
 </page>
