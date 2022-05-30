@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="sales_order_item" resource="default" engine="innodb">
+        <column xsi:type="decimal" scale="4" precision="10" name="volume" nullable="true" default="1" comment="PRODUCT VOLUME"/>
+    </table>
+    <table name="quote_item" resource="checkout" engine="innodb" comment="Sales Flat Quote Item">
+        <column xsi:type="decimal" scale="4" precision="10" name="volume" nullable="true" default="1" comment="PRODUCT VOLUME"/>
+    </table>
+</schema>

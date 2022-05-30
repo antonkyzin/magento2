@@ -3,6 +3,9 @@ declare(strict_types=1);
 
 namespace VConnect\Erp\Setup\Patch\Data;
 
+use Magento\Customer\Model\Customer;
+use Magento\Customer\Setup\CustomerSetup;
+use Magento\Customer\Setup\CustomerSetupFactory;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Framework\Setup\Patch\DataPatchInterface;
 use Magento\Framework\Setup\Patch\PatchRevertableInterface;
@@ -12,7 +15,7 @@ class SetupCustomerErpId implements DataPatchInterface, PatchRevertableInterface
     private ModuleDataSetupInterface $moduleDataSetup;
 
     /**
-     * @var CustomerSetup
+     * @var CustomerSetupFactory
      */
     private $customerSetupFactory;
 

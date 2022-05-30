@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="order_items">
+            <arguments>
+                <argument name="columns" xsi:type="array">
+                    <item name="item_volume" xsi:type="string" translate="true">Item Volume</item>
+                    <item name="total_volume" xsi:type="string" translate="true">Total Volume</item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+        <referenceBlock name="default_order_items_renderer">
+            <arguments>
+                <argument name="columns" xsi:type="array">
+                    <item name="item_volume" xsi:type="string" translate="true">col-volume</item>
+                    <item name="total_volume" xsi:type="string" translate="true">col-tot-volume</item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+        <referenceBlock name="order_additional_info">
+            <block class="VConnect\OrderVolume\Block\Adminhtml\Order\RenderVolume" name="order_volume"
+                   template="VConnect_OrderVolume::order/volume.phtml"/>
+        </referenceBlock>
+    </body>
+</page>
